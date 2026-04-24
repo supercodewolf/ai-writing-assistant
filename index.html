@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Writing Assistant - 智能写作助手</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-brand">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                        <path d="M2 2l7.586 7.586"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>墨韵写作</h1>
+                    <span>AI智能写作助手</span>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="btn-icon" id="settingsBtn" title="设置">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m18.07-4.93l-4.24 4.24m-5.66 5.66L4.93 19.07m14.14 0l-4.24-4.24m-5.66-5.66L4.93 4.93"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Writing Type Selector -->
+            <section class="type-selector">
+                <h2 class="section-title">选择写作类型</h2>
+                <div class="type-grid">
+                    <button class="type-card active" data-type="news">
+                        <div class="type-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+                                <path d="M18 14h-8"/>
+                                <path d="M15 18h-5"/>
+                                <path d="M10 6h8v4h-8V6Z"/>
+                            </svg>
+                        </div>
+                        <span class="type-name">新闻稿</span>
+                        <span class="type-desc">正式、客观、简洁</span>
+                    </button>
+                    
+                    <button class="type-card" data-type="marketing">
+                        <div class="type-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                        <span class="type-name">营销文案</span>
+                        <span class="type-desc">吸引眼球、情感共鸣</span>
+                    </button>
+                    
+                    <button class="type-card" data-type="email">
+                        <div class="type-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                        </div>
+                        <span class="type-name">商务邮件</span>
+                        <span class="type-desc">专业、有礼、结构清晰</span>
+                    </button>
+                    
+                    <button class="type-card" data-type="report">
+                        <div class="type-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <span class="type-name">分析报告</span>
+                        <span class="type-desc">数据支撑、逻辑严密</span>
+                    </button>
+                    
+                    <button class="type-card" data-type="social">
+                        <div class="type-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <path d="M22 6l-10 7L2 6"/>
+                            </svg>
+                        </div>
+                        <span class="type-name">社交媒体</span>
+                        <span class="type-desc">简短、活泼、有话题性</span>
+                    </button>
+                    
+                    <button class="type-card" data-type="story">
+                        <div class="type-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                                <path d="M19 3v4"/>
+                                <path d="M21 5h-4"/>
+                            </svg>
+                        </div>
+                        <span class="type-name">故事创作</span>
+                        <span class="type-desc">情节丰富、人物立体</span>
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Writing Panel -->
+            <div class="writing-panels">
+                <!-- Input Panel -->
+                <section class="panel input-panel">
+                    <div class="panel-header">
+                        <h3>输入要求</h3>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <!-- Parameters -->
+                        <div class="params-grid">
+                            <div class="param-group">
+                                <label>写作语气</label>
+                                <select id="toneSelect">
+                                    <option value="formal">正式</option>
+                                    <option value="casual">轻松</option>
+                                    <option value="friendly">友好</option>
+                                    <option value="professional">专业</option>
+                                </select>
+                            </div>
+                            
+                            <div class="param-group">
+                                <label>内容长度</label>
+                                <select id="lengthSelect">
+                                    <option value="short">简短 (200字内)</option>
+                                    <option value="medium" selected>中等 (500字内)</option>
+                                    <option value="long">详细 (1000字内)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="param-group">
+                                <label>目标受众</label>
+                                <input type="text" id="audienceInput" placeholder="如：年轻白领、创业者">
+                            </div>
+                            
+                            <div class="param-group">
+                                <label>关键词</label>
+                                <input type="text" id="keywordsInput" placeholder="用逗号分隔">
+                            </div>
+                        </div>
+                        
+                        <!-- Topic Input -->
+                        <div class="topic-input">
+                            <label>写作主题 / 概要</label>
+                            <textarea id="topicInput" placeholder="请输入你想要写作的主题或内容概要..."></textarea>
+                        </div>
+                        
+                        <!-- Generate Button -->
+                        <button class="btn-generate" id="generateBtn">
+                            <svg class="icon-generate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                            <svg class="icon-loading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span>开始生成</span>
+                        </button>
+                    </div>
+                </section>
+                
+                <!-- Preview Panel -->
+                <section class="panel preview-panel">
+                    <div class="panel-header">
+                        <h3>预览结果</h3>
+                        <div class="panel-actions">
+                            <button class="btn-action" id="copyBtn" disabled>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                复制
+                            </button>
+                            <button class="btn-action" id="clearBtn" disabled>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 6h18"/>
+                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                                </svg>
+                                清空
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <div class="preview-content" id="previewContent">
+                            <div class="preview-placeholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                                    <path d="M2 2l7.586 7.586"/>
+                                </svg>
+                                <p>生成的文字将显示在这里</p>
+                            </div>
+                        </div>
+                        
+                        <div class="preview-stats" id="previewStats">
+                            <span class="stat">
+                                <strong id="wordCount">0</strong> 字
+                            </span>
+                            <span class="stat">
+                                <strong id="charCount">0</strong> 字符
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>API 设置</h2>
+                <button class="close-btn" id="closeSettings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label>API 服务商</label>
+                    <select id="providerSelect">
+                        <optgroup label="国际服务商">
+                            <option value="openai">OpenAI</option>
+                            <option value="azure">Azure OpenAI</option>
+                            <option value="deepseek">DeepSeek</option>
+                        </optgroup>
+                        <optgroup label="国内服务商">
+                            <option value="siliconflow">硅基流动 (免费额度)</option>
+                            <option value="zhipu">智谱 AI (GLM)</option>
+                            <option value="baidu">百度文心一言</option>
+                            <option value="aliyun">阿里通义千问</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>API 端点</label>
+                    <input type="text" id="apiEndpoint" placeholder="选择服务商后自动填充">
+                </div>
+                <div class="setting-group">
+                    <label>API Key</label>
+                    <input type="password" id="apiKey" placeholder="输入你的 API Key">
+                </div>
+                <div class="setting-group">
+                    <label>模型</label>
+                    <select id="modelSelect">
+                        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="saveSettings">保存设置</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
