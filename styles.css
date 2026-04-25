@@ -66,9 +66,8 @@ body {
 .app-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: var(--space-md);
+    padding: var(--space-lg);
     min-height: 100dvh;
-    height: 100dvh;
     display: flex;
     flex-direction: column;
 }
@@ -78,9 +77,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: var(--space-sm);
+    padding-bottom: var(--space-lg);
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xl);
 }
 
 .header-brand {
@@ -90,8 +89,8 @@ body {
 }
 
 .logo {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     background: var(--accent-primary);
     border-radius: var(--radius-md);
     display: flex;
@@ -101,20 +100,20 @@ body {
 }
 
 .logo svg {
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     color: white;
 }
 
 .brand-text h1 {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: 0.05em;
 }
 
 .brand-text span {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
 }
 
@@ -150,29 +149,29 @@ body {
 
 /* ==================== Type Selector ==================== */
 .section-title {
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-md);
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
 .type-selector {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xl);
 }
 
 .type-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: var(--space-xs);
+    gap: var(--space-md);
 }
 
 .type-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--space-sm);
+    padding: var(--space-lg) var(--space-md);
     background: var(--bg-tertiary);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-lg);
@@ -194,14 +193,14 @@ body {
 }
 
 .type-icon {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--bg-secondary);
     border-radius: var(--radius-md);
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
     transition: var(--transition-fast);
 }
 
@@ -210,8 +209,8 @@ body {
 }
 
 .type-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     color: var(--accent-primary);
     transition: var(--transition-fast);
 }
@@ -221,28 +220,23 @@ body {
 }
 
 .type-name {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 0;
+    margin-bottom: var(--space-xs);
 }
 
 .type-desc {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
 }
 
 /* ==================== Writing Panels ==================== */
 .writing-panels {
-    display: flex;
-    gap: var(--space-md);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
     flex: 1;
-    min-height: 0;
-}
-
-.writing-panels > .panel {
-    flex: 1;
-    min-width: 0;
 }
 
 .panel {
@@ -259,13 +253,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-md) var(--space-lg);
     border-bottom: 1px solid var(--border-color);
     background: var(--bg-secondary);
 }
 
 .panel-header h3 {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -306,7 +300,7 @@ body {
 }
 
 .panel-body {
-    padding: var(--space-sm);
+    padding: var(--space-lg);
     flex: 1;
     overflow-y: auto;
 }
@@ -315,8 +309,8 @@ body {
 .params-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
 }
 
 .param-group {
@@ -356,27 +350,27 @@ body {
 
 /* ==================== Topic Input ==================== */
 .topic-input {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-lg);
 }
 
 .topic-input label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--text-secondary);
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
 }
 
 .topic-input textarea {
     width: 100%;
-    min-height: 120px;
-    padding: var(--space-sm);
+    min-height: 180px;
+    padding: var(--space-md);
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     font-family: inherit;
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-size: 0.9375rem;
+    line-height: 1.7;
     color: var(--text-primary);
     resize: vertical;
     outline: none;
@@ -447,8 +441,8 @@ body {
 
 /* ==================== Preview Panel ==================== */
 .preview-content {
-    min-height: 150px;
-    margin-bottom: var(--space-sm);
+    min-height: 300px;
+    margin-bottom: var(--space-md);
 }
 
 .preview-placeholder {
@@ -456,20 +450,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 150px;
+    min-height: 300px;
     color: var(--text-muted);
     text-align: center;
 }
 
 .preview-placeholder svg {
-    width: 40px;
-    height: 40px;
-    margin-bottom: var(--space-xs);
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--space-md);
     opacity: 0.5;
 }
 
 .preview-placeholder p {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
 }
 
 .preview-content .output-text {
@@ -535,8 +529,8 @@ body {
 
 .preview-stats {
     display: flex;
-    gap: var(--space-md);
-    padding-top: var(--space-xs);
+    gap: var(--space-lg);
+    padding-top: var(--space-md);
     border-top: 1px solid var(--border-color);
 }
 
@@ -726,7 +720,7 @@ body {
 
 @media (max-width: 900px) {
     .writing-panels {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
     
     .type-grid {
@@ -778,88 +772,4 @@ body {
 :focus-visible {
     outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
-}
-
-/* ==================== Copyright Footer ==================== */
-.copyright-footer {
-    width: 100%;
-    padding: var(--space-sm) var(--space-md);
-    background: linear-gradient(180deg, var(--bg-primary), rgba(45, 90, 74, 0.05));
-    border-top: 1px solid var(--border-color);
-    margin-top: auto;
-}
-
-.copyright-content {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    background: var(--bg-card);
-    border: 1px solid rgba(45, 90, 74, 0.2);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-}
-
-.copyright-icon {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-    color: var(--accent-primary);
-    opacity: 0.8;
-}
-
-.copyright-main, .copyright-sub {
-    margin: 0;
-    font-size: 0.8125rem;
-}
-
-.copyright-text {
-    text-align: center;
-}
-
-.copyright-main {
-    font-size: 0.9375rem;
-    color: var(--text-primary);
-    margin-bottom: var(--space-xs);
-}
-
-.copyright-main strong {
-    color: var(--accent-primary);
-    font-weight: 600;
-}
-
-.copyright-sub {
-    font-size: 0.8125rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-}
-
-.copyright-sub::before,
-.copyright-sub::after {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-}
-
-@media (max-width: 600px) {
-    .copyright-content {
-        flex-direction: column;
-        text-align: center;
-        padding: var(--space-md);
-    }
-    
-    .copyright-main {
-        font-size: 0.875rem;
-    }
-    
-    .copyright-sub {
-        font-size: 0.75rem;
-    }
 }
